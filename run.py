@@ -20,7 +20,7 @@ server_id, server_state = [[x['id'], x['state']]
 print(server_id)
 print(server_state)
 
-if num_open_jobs > 0 and server_state != 'running':
+if num_open_jobs > 0 and server_state == 'stopped':
     print(api.query().servers(server_id).action.post({'action': 'poweron'}))
 
 if num_open_jobs == 0 and server_state == 'running':
